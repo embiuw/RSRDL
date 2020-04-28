@@ -1,12 +1,21 @@
-Package: rSRDL
+Package: RSRDL
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Title: Communicate with SMRU SRDL Access (Windows only) and PostreSQL (platform independent) databases
+Version: 1.0.0
+Author: Martin Biuw
+Maintainer: Martin Biuw <martin.biuw@hi.no>
+Description: Package containing various functions for communicating with SMRU SRDL databases in Access format. 
+    It contains functions for interrogating SMRU Access databases for content (e.g. tables, individuals tagged etc) 
+    as well as reading tables (potentially subset by individual animals) or entire databases. 
+    Tables are read in as data frames, while a database is read in as a list of data frames.
+    The package also contains a function for converting from Access to PostgreSQL, 
+    and functions for communicating with PostgreSQL databases as described for SMRU Access databases above.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.0
+RoxygenNote: 6.1.1
+Depends: R (>= 3.3.0)
+Imports: 
+    odbc,
+    DBI,
+    RPostgreSQL
