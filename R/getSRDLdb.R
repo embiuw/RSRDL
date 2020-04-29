@@ -22,6 +22,7 @@
 
 tables.SRDLdb <- function(theDB='ct34', thePath='C:/MamVisAD/SMRUAccessDatabases') {
   require(DBI)
+  require(odbc)
   running <- Sys.info()[["machine"]]
   if(running=="x86") {
     con <- dbConnect(odbc::odbc(), theDB)
@@ -63,6 +64,7 @@ tables.SRDLdb <- function(theDB='ct34', thePath='C:/MamVisAD/SMRUAccessDatabases
 
 fields.SRDLdb <- function(theDB='ct34', theTable='dive', thePath='C:/MamVisAD/SMRUAccessDatabases') {
   require(DBI)
+  require(odbc)
   running <- Sys.info()[["machine"]]
   if(running=="x86") {
     con <- dbConnect(odbc::odbc(), theDB)
@@ -102,6 +104,7 @@ fields.SRDLdb <- function(theDB='ct34', theTable='dive', thePath='C:/MamVisAD/SM
 
 ref.SRDLdb <- function(theDB='ct34') {
   require(DBI)
+  require(odbc)
   running <- Sys.info()[["machine"]]
   if(running=="x86") {
     con <- dbConnect(odbc::odbc(), theDB)
@@ -140,6 +143,7 @@ ref.SRDLdb <- function(theDB='ct34') {
 
 dep.SRDLdb <- function(theDB='ct34', thePath='C:/MamVisAD/SMRUAccessDatabases') {
   require(DBI)
+  require(odbc)
   running <- Sys.info()[["machine"]]
   if(running=="x86") {
     con <- dbConnect(odbc::odbc(), theDB)
@@ -186,6 +190,7 @@ dep.SRDLdb <- function(theDB='ct34', thePath='C:/MamVisAD/SMRUAccessDatabases') 
 get.SRDLdb <- function(theDB='ct34', theTable='dive', theFields='All',
                        theRef='ct34-2447-08', thePath='C:/MamVisAD/SMRUAccessDatabases') {
   require(DBI)
+  require(odbc)
   running <- Sys.info()[["machine"]]
   if(running=="x86") {
     con <- dbConnect(odbc::odbc(), theDB)
