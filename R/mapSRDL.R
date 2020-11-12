@@ -12,8 +12,8 @@
 #' @param coverage Should map cover all historical tracks ("All") or only tail? Only implemented for simple plot.
 #' @param ref.time Should reference time be current ("now") or last recorded time in data ("last")?
 #' @param save.file If NA, plots map in Rstudio viewer, if filename is supplied it saves an html file.
-#' @return Returns a map, either as standard with coastline from '\code{worldHires} in \code{mapdata}
-#'   or an interactive leaflet (if \code{type='leaflet})
+#' @return Returns a map, either as standard with coastline from \code{worldHires} in \code{mapdata}
+#'   or an interactive leaflet (if \code{type='leaflet'})
 #' @details The leaflet option depends on the \code{\link{leaflet} function, and the relevant
 #'   package (\code{leaflet} must be installed for this option to work.
 #' @family SMRU SRDL functions

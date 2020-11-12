@@ -40,8 +40,8 @@ Otherwise specify the column name containing the filter.}
 or a leaflet map (set \code{type="leaflet"})}
 }
 \value{
-Returns a map, either as standard with coastline from '\code{worldHires} in \code{mapdata}
-  or an interactive leaflet (if \code{type='leaflet})
+Returns a map, either as standard with coastline from \code{worldHires} in \code{mapdata}
+  or an interactive leaflet (if \code{type='leaflet'})
 }
 \description{
 \code{map.SRDL} makes a map of SRDL position (diag) data
