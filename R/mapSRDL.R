@@ -53,7 +53,7 @@ map.SRDL <- function(di.dat=hp4, type='simple', theRef='All', filter='v.mask',
       di.dat <- subset(di.dat, di.dat[,f.col]==include)
     }
     if(coverage=='All') {
-      if(diff(range(di.dat$lon))>300) {
+      if(diff(range(di.dat$lon, na.rm=T))>300) {
         theWrap=c(0, 360)
         lat <- di.dat$lat
         lon <- di.dat$lon
@@ -117,7 +117,7 @@ map.SRDL <- function(di.dat=hp4, type='simple', theRef='All', filter='v.mask',
                attribution='Copyright: IMR (Even Moland, Kjell T. Nilssen, Carla Freitas, Martin Biuw)') %>%
       mapOptions(zoomToLimits = "always")
 
-    if(diff(range(di.dat$lon))>300) {
+    if(diff(range(di.dat$lon, na.rm=T))>300) {
       di.dat$lon[which(di.dat$lon<0)] <- di.dat$lon[which(di.dat$lon<0)] + 360
     }
     cols <- unname(distinctColorPalette(nlevels(di.dat$ref)))
