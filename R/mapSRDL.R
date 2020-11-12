@@ -31,21 +31,29 @@
 #' @importFrom randomcoloR randomColor
 #' @export
 
-map.SRDL <- function(di.dat=hp4, type='simple', theRef='All', filter='v.mask',
+map.SRDL <- function(di.dat=hp4, type='simple', theRef='All', filter='v.mask', plot.haulouts=F,
                      include=0, tail=10, coverage='All', ref.time='now', save.file=NA) {
   if('diag' %in% names(di.dat)) {
+    if(plot.haulouts) ho.dat <- di.dat$haulout
     di.dat <- di.dat$diag
   } else {
+    if(plot.haulouts) ho.dat <- di.dat$haulout
     di.dat <- di.dat$gps
   }
   names(di.dat) <- tolower(names(di.dat))
+  if(plot.haulouts) names(ho.dat) <- tolower(names(ho.dat))
 
-  names(di.dat) <- tolower(names(di.dat))
   if(theRef!="All") {
     which.refs <- which(di.dat$ref %in% theRef)
     di.dat <- di.dat[which.refs,]
     di.dat$ref <- as.factor(as.character(di.dat$ref))
+    if(plot.haulouts) {
+      which.refs <- which(ho.dat$ref %in% theRef)
+      ho.dat <- ho.dat[which.refs,]
+      ho.dat$ref <- factor(as.character(ho.dat$ref), levels=levels(di.dat))
+    }
   }
+
   if(type=='simple') {
     library(mapdata)
     if(!is.na(filter)) {
@@ -157,6 +165,13 @@ map.SRDL <- function(di.dat=hp4, type='simple', theRef='All', filter='v.mask',
         m <- addCircleMarkers(m, tail(tmp$lon, 1), tail(tmp$lat, 1), color='black', fillColor=cols[i],
                               opacity=1, fillOpacity=0.8, weight=2, radius=7,
                               popup=paste('<center><b>', tmp$ref, '</b><br>', tmp$d.date, '</center>'))
+      }
+
+      if(plot.haulouts) {
+        ho.tmp <- subset(ho.dat, ho.dat$ref==levels(ho.dat$ref)[i])
+        m <- addMarkers(m, ho.tmp$lon, ho.tmp$lat,
+                               icon=list(iconUrl='https://images.twinkl.co.uk/tr/image/upload/illustation/seal-1.png',
+                                         iconSize = c(50, 25)))
       }
     }
 
