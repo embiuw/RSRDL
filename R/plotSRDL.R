@@ -1,4 +1,4 @@
-#' \code{qcDive} checks consistency of dive records
+#' \code{qcDive} Checks consistency of dive records
 #'
 #' @param d.dat Dive data to be quality controlled
 #' @param flag.only logical specifying if erroneous records should be flagged or deleted
