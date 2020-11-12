@@ -1,4 +1,4 @@
-Package: RSRDL
+Package: rSRDL
 Type: Package
 Title: Communicate with SMRU SRDL Access (Windows only) and PostreSQL (platform independent) databases
 Version: 1.0.0
