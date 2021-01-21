@@ -55,11 +55,11 @@ qcDive <- function(d.dat=dive, flag.only=T, max.v.speed=5) {
     }
   }
 
-  t.diff <- lapply(c(1:(length(t.pts)-1)), function(y) {
+  t.diff <- pbapply::pblapply(c(1:(length(t.pts)-1)), function(y) {
     apply(as.matrix(d.dat[,t.pts]), 1, function(x) diff(x)[y])
   })
 
-  d.diff <- lapply(c(1:(length(d.pts)-1)), function(y) {
+  d.diff <- pbapply::pblapply(c(1:(length(d.pts)-1)), function(y) {
     apply(as.matrix(d.dat[,d.pts]), 1, function(x) diff(x)[y])
   })
 
