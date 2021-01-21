@@ -36,7 +36,11 @@ qcDive <- function(d.dat=dive, flag.only=T, max.v.speed=5) {
 
   deleted <- c(deleted, which(apply(d.dat[,t.pts], 1, function(x) any(diff(x)<0))))
 
+  require(progress)
+  pb <- progress_bar$new(total=nrow(d.dat))
+
   for(i in 1:nrow(d.dat)) {
+    pb$tick()
     x <- unlist(d.dat[i,c(t.pts, d.pts)])
     if(any(is.na(x))) {
       deleted <- c(deleted, i)
